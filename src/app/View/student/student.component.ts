@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { StudentService } from 'src/app/Services/student.service';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-student',
@@ -19,6 +19,8 @@ export class StudentComponent {
     private http: HttpClient
   ) {
     route.params.subscribe((params: any) => {
+      console.log(params['id']);
+
       studentService.getStudent(params['id']).then((v) => (this.student = v));
       studentService
         .getStudentCertifications(params['id'])
