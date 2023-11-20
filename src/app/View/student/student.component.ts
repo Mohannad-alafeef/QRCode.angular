@@ -11,25 +11,28 @@ import { HttpClient } from '@angular/common/http';
 export class StudentComponent {
   list: Array<number> = new Array(7);
 
+  student: any = {};
+  certifications: any[] = [];
   constructor(
     route: ActivatedRoute,
     private studentService: StudentService,
     private http: HttpClient
   ) {
     route.params.subscribe((params: any) => {
-      studentService.Foo(params['id']);
+      studentService.getStudent(params['id']).then((v) => (this.student = v));
+      studentService
+        .getStudentCertifications(params['id'])
+        .then((v) => (this.certifications = v));
     });
   }
 
-  downloadStudentCV() {
-    const cvUrl = 'https://ik.imagekit.io/m1dw7xcao/50edc67b-edc0-49de-97b2-17a44d951ad1';
-
-    this.http.get(cvUrl, { responseType: 'blob' }).subscribe((blob: Blob) => {
+  downloadPdf(pdfUrl: string) {
+    this.http.get(pdfUrl, { responseType: 'blob' }).subscribe((blob: Blob) => {
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
 
       link.href = url;
-      link.download = 'student_cv.pdf';
+      link.download = `${this.student.firstName}_${this.student.lastName}.pdf`;
       document.body.appendChild(link);
 
       link.click();
@@ -37,5 +40,9 @@ export class StudentComponent {
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
     });
+  }
+  getAge(dob: string) {
+    let timeDiff = Math.abs(Date.now() - new Date(dob).getTime());
+    return Math.floor(timeDiff / (1000 * 3600 * 24) / 365.25);
   }
 }
