@@ -1,14 +1,22 @@
+body {
+  background-image: url("/assets/background3.avif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: #f2f2f2; /* White background color for the navbar */
+    background-color: #ebebeb; 
   }
   
   .logo {
     height: 70px;
-    width: 300px; /* Adjust the width as needed */
+    width: 300px; 
   }
   
   .social-icons {
@@ -16,10 +24,37 @@
   }
   
   .social-icon {
-    margin-right: 10px; /* Adjust the margin as needed */
+    margin-right: 10px; 
   }
   
   .social-icon img {
-    width: 30px; /* Adjust the width as needed */
-    height: auto; /* Maintain the aspect ratio */
+    width: 30px; 
+    height: auto; 
+  }
+  .footer {
+    text-align: center;
+    padding: 10px;
+    background-color:#ebebeb; 
+  }
+  .col-lg-8{
+    margin-left: 450px;
+    margin-top: -130px;
+  }
+
+  .center-content {
+    display: flex;
+    justify-content: center !important; 
+    align-items: center !important;
+    padding-right: 50px; 
+  }
+  
+  @media (max-width: 768px) {
+    .col-lg-8 {
+      margin-left: 0;
+      margin-top: 0;
+    }
+    .center-content {
+      padding-right: 0;
+    }
+   
   }

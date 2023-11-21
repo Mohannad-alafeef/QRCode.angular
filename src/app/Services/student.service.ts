@@ -9,7 +9,7 @@ export class StudentService {
   getStudent = async (id: any) => {
     return await new Promise((res, rej) => {
       this.http
-        .get('http://192.168.233.98:5001/api/UserAccount/user/' + id)
+        .get('https://localhost:7181/api/UserAccount/user/' + id)
         .subscribe({
           next: (resp: any) => {
             console.log(resp);
@@ -25,7 +25,7 @@ export class StudentService {
   getStudentCertifications = async (id: any) => {
     return await new Promise<any[]>((res, rej) => {
       this.http
-        .get('http://192.168.233.98:5001/api/UserAccount/UserCourses/' + id)
+        .get('https://localhost:7181/api/UserAccount/UserCourses/' + id)
         .subscribe({
           next: (resp: any) => {
             console.log(resp);
