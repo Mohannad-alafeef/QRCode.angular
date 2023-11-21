@@ -1,25 +1,57 @@
+ody {
+  background-image: url("/assets/background3.avif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(255, 255, 255, 0.8);
+}
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #f2f2f2; /* White background color for the navbar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #ebebeb; /* White background color for the navbar */
+}
+
+.logo {
+  height: 70px;
+  width: 300px; /* Adjust the width as needed */
+}
+
+.social-icons {
+  display: flex;
+}
+
+.social-icon {
+  margin-right: 10px; /* Adjust the margin as needed */
+}
+
+.social-icon img {
+  width: 30px; /* Adjust the width as needed */
+  height: auto; /* Maintain the aspect ratio */
+}
+.footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #ebebeb;
+}
+.col-lg-8 {
+  margin-left: 450px;
+  margin-top: -130px;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  padding-right: 50px;
+}
+
+@media (max-width: 768px) {
+  .col-lg-8 {
+    margin-left: 0;
+    margin-top: 0;
   }
-  
-  .logo {
-    height: 70px;
-    width: 300px; /* Adjust the width as needed */
+  .center-content {
+    padding-right: 0;
   }
-  
-  .social-icons {
-    display: flex;
-  }
-  
-  .social-icon {
-    margin-right: 10px; /* Adjust the margin as needed */
-  }
-  
-  .social-icon img {
-    width: 30px; /* Adjust the width as needed */
-    height: auto; /* Maintain the aspect ratio */
-  }
+}
