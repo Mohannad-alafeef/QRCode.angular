@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { StudentService } from 'src/app/Services/student.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { Token } from '@angular/compiler';
 
 @Component({
   selector: 'app-student',
@@ -19,11 +20,15 @@ export class StudentComponent {
     private http: HttpClient
   ) {
     route.params.subscribe((params: any) => {
-      console.log(params['id']);
+      let base64token = params['token'];
+      console.log(base64token);
+      let tokenString = atob(base64token);
+      let token = JSON.parse(tokenString);
+      console.log(token);
 
-      studentService.getStudent(params['id']).then((v) => (this.student = v));
+      studentService.getStudent(token.userId).then((v) => (this.student = v));
       studentService
-        .getStudentCertifications(params['id'])
+        .getStudentCertifications(token.userId)
         .then((v) => (this.certifications = v));
     });
   }

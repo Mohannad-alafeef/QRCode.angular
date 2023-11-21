@@ -4,7 +4,7 @@ import { StudentComponent } from './View/student/student.component';
 
 const routes: Routes = [
   {
-    path: ':id',
+    path: ':token',
     component: StudentComponent,
   },
 ];
